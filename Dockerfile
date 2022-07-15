@@ -86,4 +86,4 @@ WORKDIR $HOME
 
 #run echo 'eval `ssh-agent`' >> .bashrc
 
-EXPOSE 8888
+EXPOSE 8888 4040 4041

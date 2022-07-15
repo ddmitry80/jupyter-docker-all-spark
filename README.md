@@ -2,4 +2,5 @@
 
 Для сборки исползовать команду `docker compose up --build`
 
-Открывать по url: http://localhost:8888/lab
+Открывать Jupyter Lab по url: http://localhost:8888/lab
+Spark UI: http://localhost:4040/
