@@ -84,6 +84,4 @@ USER $NB_UID
 
 WORKDIR $HOME
 
-#run echo 'eval `ssh-agent`' >> .bashrc
-
 EXPOSE 8888 4040 4041
