@@ -1,0 +1,15 @@
+version: '2'
+services:
+  jupyter-local:
+    # image: jupyter/all-spark-notebook:spark-3.2.0
+    build: .
+    ports:
+      - 8888:8888
+      - 4040:4040
+      - 4041:4041
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - ./data:/home/jovyan/data
+      - ./models:/home/jovyan/models
+      - ./ssh-keys:/home/jovyan/.ssh 
+    entrypoint: start-notebook.sh --NotebookApp.token=''
