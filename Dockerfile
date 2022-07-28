@@ -14,7 +14,7 @@ COPY ssh-agent.sh /usr/local/bin/start-notebook.d/
 RUN chmod +x /usr/local/bin/start-notebook.d/ssh-agent.sh
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends openssh-client mc ncdu htop tig maven && \
+    apt-get install -y --no-install-recommends openssh-client mc ncdu htop tig maven language-pack-ru && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Python 3 packages
