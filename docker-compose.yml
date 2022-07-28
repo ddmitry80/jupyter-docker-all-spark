@@ -4,12 +4,11 @@ services:
     # image: jupyter/all-spark-notebook:spark-3.2.0
     build: .
     ports:
-      - 8888:8888
-      - 4040:4040
-      - 4041:4041
+      - 8898:8888
+      - 6040:4040
+      - 6041:4041
     volumes:
-      - ./notebooks:/home/jovyan/work
-      - ./data:/home/jovyan/data
-      - ./models:/home/jovyan/models
       - ./ssh-keys:/home/jovyan/.ssh 
+      - ./notebooks:/home/jovyan/work
+      - /c/ddmitry/Sources:/home/jovyan/work/sources
     entrypoint: start-notebook.sh --NotebookApp.token=''
