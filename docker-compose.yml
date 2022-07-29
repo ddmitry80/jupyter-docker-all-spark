@@ -10,5 +10,5 @@ services:
     volumes:
       - ./ssh-keys:/home/jovyan/.ssh 
       - ./notebooks:/home/jovyan/work
-      - /c/ddmitry/Sources:/home/jovyan/work/sources
+      - ~/sources:/home/jovyan/work/sources
     entrypoint: start-notebook.sh --NotebookApp.token=''
