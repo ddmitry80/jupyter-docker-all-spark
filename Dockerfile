@@ -54,6 +54,14 @@ RUN mamba install -c conda-forge --quiet --yes \
     && \
     mamba clean --all -f -y 
 
+RUN mamba install -c conda-forge --yes \
+    geopandas==0.10.2 \
+    shapely==1.8.2 \
+    h3-py==3.7.3 \
+    geodatasets \
+    && \
+    mamba clean --all -f -y 
+
     # Activate ipywidgets extension in the environment that runs the notebook server
 # RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
 #     # Also activate ipywidgets extension for JupyterLab
