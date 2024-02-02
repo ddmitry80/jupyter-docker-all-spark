@@ -57,9 +57,10 @@ RUN mamba install -c conda-forge --quiet --yes \
 #RUN mamba update -y --all
 
 RUN mamba install -c conda-forge --yes \
-    geopandas==0.10.2 \
-    shapely==1.8.2 \
-    h3-py==3.7.3 \
+    gdal \
+    geopandas \
+    shapely \
+    h3-py \
     geodatasets \
     && \
     mamba clean --all -f -y 
