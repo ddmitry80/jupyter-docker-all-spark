@@ -2,7 +2,7 @@
 # manual https://jupyter-docker-stacks.readthedocs.io/en/latest/
 # based on https://github.com/jupyter/docker-stacks/tree/master/pyspark-notebook
 # based on https://github.com/jupyter/docker-stacks/blob/master/scipy-notebook/Dockerfile
-ARG BASE_CONTAINER=jupyter/all-spark-notebook:spark-3.2.0
+ARG BASE_CONTAINER=jupyter/all-spark-notebook:spark-3.5.0
 FROM $BASE_CONTAINER
 
 LABEL maintainer="Dmitry Dementiev <ddmitry@gmail.com>"
@@ -27,12 +27,6 @@ RUN mamba install -c conda-forge --quiet --yes \
     conda clean --all -f -y 
 
 # Install Python 3 packages
-# RUN conda install -c conda-forge --yes \
-#     xeus-python \
-#     && \
-#     conda clean --all -f -y 
-
-# Install Python 3 packages
 RUN mamba install -c conda-forge --quiet --yes \
     catboost \
     xgboost \
@@ -48,35 +42,10 @@ RUN mamba install -c conda-forge --quiet --yes \
     shap \
     graphviz \
     kaggle \
-    # lxml \
-    # html5lib \
-    theme-darcula \
+    lxml \
+    html5lib \
     && \
     mamba clean --all -f -y 
-
-RUN mamba install -c conda-forge --yes \
-    geopandas==0.10.2 \
-    shapely==1.8.2 \
-    h3-py==3.7.3 \
-    geodatasets \
-    && \
-    mamba clean --all -f -y 
-
-    # Activate ipywidgets extension in the environment that runs the notebook server
-# RUN jupyter nbextension enable --py widgetsnbextension --sys-prefix && \
-#     # Also activate ipywidgets extension for JupyterLab
-#     # Check this URL for most recent compatibilities
-#     # https://github.com/jupyter-widgets/ipywidgets/tree/master/packages/jupyterlab-manager
-#     jupyter labextension install jupyterlab-theme-solarized-dark  --no-build && \
-#     conda upgrade --all && \
-#     jupyter lab build -y && \
-#     jupyter lab clean -y && \
-#     npm cache clean --force && \
-#     rm -rf "/home/${NB_USER}/.cache/yarn" && \
-#     rm -rf "/home/${NB_USER}/.node-gyp" && \
-#     fix-permissions "${CONDA_DIR}" && \
-#     fix-permissions "/home/${NB_USER}"
-
 
 RUN echo "env_dirs:" >> $HOME/.conda/condarc && \
     echo "- $HOME/conda-envs" >> $HOME/.conda/condarc && \
@@ -85,8 +54,6 @@ RUN echo "env_dirs:" >> $HOME/.conda/condarc && \
 # Import matplotlib the first time to build the font cache.
 ENV XDG_CACHE_HOME="/home/${NB_USER}/.cache/"
 
-# RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot" && \
-#     fix-permissions "/home/${NB_USER}"
 
 USER $NB_UID
 
