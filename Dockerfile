@@ -3,7 +3,6 @@
 # based on https://github.com/jupyter/docker-stacks/tree/master/pyspark-notebook
 # based on https://github.com/jupyter/docker-stacks/blob/master/scipy-notebook/Dockerfile
 ARG BASE_CONTAINER=jupyter/all-spark-notebook:spark-3.5.0
-ARG BASE_CONTAINER=jupyter/all-spark-notebook:spark-3.5.0
 FROM $BASE_CONTAINER
 
 LABEL maintainer="Dmitry Dementiev <ddmitry@gmail.com>"
