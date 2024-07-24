@@ -3,6 +3,7 @@
 # based on https://github.com/jupyter/docker-stacks/tree/master/pyspark-notebook
 # based on https://github.com/jupyter/docker-stacks/blob/master/scipy-notebook/Dockerfile
 ARG BASE_CONTAINER=jupyter/all-spark-notebook:spark-3.5.0
+ARG BASE_CONTAINER=jupyter/all-spark-notebook:spark-3.5.0
 FROM $BASE_CONTAINER
 
 LABEL maintainer="Dmitry Dementiev <ddmitry@gmail.com>"
@@ -46,6 +47,8 @@ RUN mamba install -c conda-forge --quiet --yes \
     html5lib \
     && \
     mamba clean --all -f -y 
+	
+#RUN mamba update -y --all
 
 RUN echo "env_dirs:" >> $HOME/.conda/condarc && \
     echo "- $HOME/conda-envs" >> $HOME/.conda/condarc && \
