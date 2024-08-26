@@ -1,8 +1,8 @@
 version: '2'
 services:
   jupyter-local:
-    # image: jupyter/all-spark-notebook:spark-3.2.0
-    build: .
+    # build: .
+    image: ddmitry80/all-spark-notebook:spark-3.5.0-20240826
     ports:
       - 8898:8888
       - 6040:4040
